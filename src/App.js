@@ -4,7 +4,7 @@ import HelloWorld from "./HelloWorld"; // Вземаме компонента о
 
 function App() {
   return (
-    <div>
+    <div style={{ textAlign: "center", marginTop: "50px" }}>
       <HelloWorld /> {/* Вмъкваме компонента тук */}
     </div>
   );
