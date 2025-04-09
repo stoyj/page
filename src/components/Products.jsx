@@ -112,7 +112,7 @@ function Products() {
 
   return (
     <div style={{ padding: "20px" }}>
-      <h2>🛍️ Продукти</h2>
+      <h2>🛍️ Products</h2>
       {products.map((product, index) => (
         <div key={index} style={{ marginBottom: "10px" }}>
           <strong>{product.name}</strong> – {product.price} лв.

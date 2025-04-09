@@ -49,12 +49,34 @@
 
 //Кажи ми коя искаш да направим, и ще ти покажа пак стъпка по стъпка – като игра! 😊
 
+// import React, { createContext, useState } from "react";
+
+// // 1. Създаваме контекст
+// export const CartContext = createContext();
+
+// // 2. Създаваме компонента, който ще обвие цялото приложение
+// export const CartProvider = ({ children }) => {
+//   const [cart, setCart] = useState([]);
+
+//   const addToCart = (product) => {
+//     setCart((prevCart) => [...prevCart, product]);
+//   };
+
+//   const clearCart = () => {
+//     setCart([]);
+//   };
+
+//   return (
+//     <CartContext.Provider value={{ cart, addToCart, clearCart }}>
+//       {children}
+//     </CartContext.Provider>
+//   );
+// };
+
 import React, { createContext, useState } from "react";
 
-// 1. Създаваме контекст
 export const CartContext = createContext();
 
-// 2. Създаваме компонента, който ще обвие цялото приложение
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 

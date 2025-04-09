@@ -1,16 +1,12 @@
 //✅ 2. App.js – използваме HelloWorld компонента:
 import React from "react";
-import "./App.css";
 import Products from "./components/Products";
 import { CartProvider } from "./context/CartContext";
 
 function App() {
   return (
     <CartProvider>
-      <div className="App">
-        <h1>Shop 🛍️</h1>
-        <Products />
-      </div>
+      <Products />
     </CartProvider>
   );
 }
