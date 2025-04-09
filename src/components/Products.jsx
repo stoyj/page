@@ -97,77 +97,73 @@
 
 // export default Products;
 
-import React, { useContext, useState } from "react";
-import { CartContext } from "../context/CartContext";
+// import React, { useContext, useState } from "react";
+// import { CartContext } from "../context/CartContext";
+
+// function Products() {
+//   const { cart, addToCart } = useContext(CartContext);
+//   const [showCart, setShowCart] = useState(false);
+
+//   const products = [
+//     { name: "🎧 Слушалки", price: 50 },
+//     { name: "📱 Телефон", price: 800 },
+//     { name: "💻 Лаптоп", price: 1500 },
+//   ];
+
+//   return (
+//     <div style={{ padding: "20px" }}>
+//       <h2>🛍️ Продукти</h2>
+//       {products.map((product, index) => (
+//         <div key={index} style={{ marginBottom: "10px" }}>
+//           <strong>{product.name}</strong> – {product.price} лв.
+//           <button
+//             style={{ marginLeft: "10px" }}
+//             onClick={() => addToCart(product)}
+//           >
+//             Добави в количката
+//           </button>
+//         </div>
+//       ))}
+
+//       <button
+//         onClick={() => setShowCart(!showCart)}
+//         style={{ marginTop: "20px" }}
+//       >
+//         {showCart ? "Скрий количката" : "🛒 Виж количката"}
+//       </button>
+
+//       {showCart && (
+//         <div
+//           style={{
+//             marginTop: "20px",
+//             borderTop: "1px solid gray",
+//             paddingTop: "10px",
+//           }}
+//         >
+//           <h3>🛒 Твоята количка</h3>
+//           {cart.length === 0 ? (
+//             <p>Количката е празна.</p>
+//           ) : (
+//             <ul>
+//               {cart.map((item, index) => (
+//                 <li key={index}>
+//                   {item.name} – {item.price} лв.
+//                 </li>
+//               ))}
+//             </ul>
+//           )}
+//         </div>
+//       )}
+//     </div>
+//   );
+// }
+
+// export default Products;
+
+import React from "react";
 
 function Products() {
-  const { cart, addToCart, clearCart } = useContext(CartContext);
-  const [showCart, setShowCart] = useState(false);
-
-  const products = [
-    { name: "🎧 Headphones", price: 50 },
-    { name: "📱 Phone", price: 800 },
-    { name: "💻 Laptop", price: 1500 },
-  ];
-
-  return (
-    <div style={{ padding: "20px" }}>
-      <h2>🛍️ Products</h2>
-      {products.map((product, index) => (
-        <div key={index} style={{ marginBottom: "10px" }}>
-          <strong>{product.name}</strong> – {product.price} лв.
-          <button
-            style={{ marginLeft: "10px" }}
-            onClick={() => addToCart(product)}
-          >
-            Добави в количката
-          </button>
-        </div>
-      ))}
-
-      <button
-        onClick={() => setShowCart(!showCart)}
-        style={{ marginTop: "20px" }}
-      >
-        {showCart ? "Скрий количката" : "🛒 Виж количката"}
-      </button>
-
-      {showCart && (
-        <div
-          style={{
-            marginTop: "20px",
-            borderTop: "1px solid gray",
-            paddingTop: "10px",
-          }}
-        >
-          <h3>🛒 Твоята количка</h3>
-          {cart.length === 0 ? (
-            <p>Количката е празна.</p>
-          ) : (
-            <ul>
-              {cart.map((item, index) => (
-                <li key={index}>
-                  {item.name} – {item.price} лв.
-                </li>
-              ))}
-            </ul>
-          )}
-
-          {cart.length > 0 && (
-            <button
-              onClick={() => {
-                alert("✅ Поръчката е изпратена!");
-                clearCart();
-              }}
-              style={{ marginTop: "10px" }}
-            >
-              Поръчай
-            </button>
-          )}
-        </div>
-      )}
-    </div>
-  );
+  return <h2>Продукти</h2>;
 }
 
 export default Products;
