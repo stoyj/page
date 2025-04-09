@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Products.css";
 
 const products = [
@@ -9,6 +9,7 @@ const products = [
       "https://images.pexels.com/photos/11199906/pexels-photo-11199906.jpeg?auto=compress&cs=tinysrgb&w=600",
     price: "59.99",
   },
+
   {
     id: 2,
     name: "Smartwatch",
@@ -16,6 +17,7 @@ const products = [
       "https://cdn.pixabay.com/photo/2014/07/31/23/01/clock-407101_1280.jpg",
     price: "149.99",
   },
+
   {
     id: 3,
     name: "Gaming Mouse",
@@ -26,9 +28,46 @@ const products = [
 ];
 
 const Products = () => {
+  const [cart, setCart] = useState([]);
+  const [showCart, setShowCart] = useState(false);
+
+  const addToCart = (product) => {
+    setCart([...cart, product]);
+    alert(`${product.name} беше добавен в количката! 🛒`);
+  };
+
+  const toggleCart = () => {
+    setShowCart(!showCart);
+  };
+
   return (
     <section className="products">
-      <h2>Our Products</h2>
+      <h2>Нашите продукти</h2>
+
+      {/* Бутона за показване на количката */}
+      <button className="view-cart-button" onClick={toggleCart}>
+        {showCart ? "Скрий количката" : "Виж количката"}
+      </button>
+
+      {/* Количката */}
+      {showCart && (
+        <div className="cart">
+          <h3>🛒 Количка</h3>
+          {cart.length === 0 ? (
+            <p>Количката е празна.</p>
+          ) : (
+            <ul>
+              {cart.map((item, index) => (
+                <li key={index}>
+                  {item.name} - ${item.price}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      )}
+
+      {/* Продуктите */}
       <div className="product-cards">
         {products.map((product) => (
           <div key={product.id} className="product-card">
@@ -39,7 +78,9 @@ const Products = () => {
             />
             <h3>{product.name}</h3>
             <p className="product-price">${product.price}</p>
-            <button className="buy-button">Add to Cart</button>
+            <button className="buy-button" onClick={() => addToCart(product)}>
+              Добави в количката
+            </button>
           </div>
         ))}
       </div>
@@ -61,3 +102,28 @@ export default Products;
 // Да добавим страница “Количка” с бутон "Поръчай"?
 
 // Кажи ми кое искаш да направим следващо – и го правим веднага! 😊
+
+// ✅ Следваща стъпка:
+// 👉 Да покажем списъка с продукти в количката (като отделна секция)
+
+//🧩 Какво ще направим:
+// 1.Ще покажем какво има в количката.
+
+// 2.Ще добавим бутон, който показва и скрива списъка.
+
+// 3.Ще покажем името и цената на продуктите.
+
+//  id: 1,
+// name: "Bluetooth Headphones",
+// image:
+// "https://images.pexels.com/photos/11199906/pexels-photo-11199906.jpeg?auto=compress&cs=tinysrgb&w=600",
+
+//   id: 2,
+// name: "Smartwatch",
+// image:
+// "https://cdn.pixabay.com/photo/2014/07/31/23/01/clock-407101_1280.jpg",
+
+// id: 3,
+// name: "Gaming Mouse",
+// image:
+// "https://cdn.pixabay.com/photo/2013/12/31/16/22/mouse-236901_1280.jpg",

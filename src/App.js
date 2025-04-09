@@ -1,36 +1,17 @@
 //✅ 2. App.js – използваме HelloWorld компонента:
-import React, { useState } from "react";
-import AboutMe from "./components/AboutMe";
-import Products from "./components/Products"; // новият компонент
+import React from "react";
+import "./App.css";
+import Products from "./components/Products";
+import { CartProvider } from "./context/CartContext";
 
 function App() {
-  const [page, setPage] = useState("home");
-
-  const renderPage = () => {
-    if (page === "about") return <AboutMe />;
-    if (page === "products") return <Products />;
-    return (
-      <div>
-        <h2>Welcome to the Hello World App!</h2>
-        <p>This is the home page content.</p>
-      </div>
-    );
-  };
-
   return (
-    <div className="App">
-      <h1>Hello World App</h1>
-
-      {/* Навигация */}
-      <nav style={{ marginBottom: "1rem" }}>
-        <button onClick={() => setPage("home")}>Home</button>
-        <button onClick={() => setPage("about")}>About Me</button>
-        <button onClick={() => setPage("products")}>Products</button>
-      </nav>
-
-      {/* Съдържание */}
-      {renderPage()}
-    </div>
+    <CartProvider>
+      <div className="App">
+        <h1>Shop 🛍️</h1>
+        <Products />
+      </div>
+    </CartProvider>
   );
 }
 
